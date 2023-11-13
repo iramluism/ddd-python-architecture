@@ -6,13 +6,15 @@ repos:
   
   - id: flake8
     stages: [commit]
+    files: src
     name: flake8 (python)
     language: system
-    entry: flake8 ./src
+    entry: flake8 ./src --config setup.cfg
 
   - id: isort
     name: isort (python)
     language: python
+    files: src
     entry: isort
     stages: [commit]
     args: [--cr setup.cfg, .]
