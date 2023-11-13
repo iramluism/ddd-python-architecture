@@ -1,0 +1,18 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+- repo: local
+  hooks:
+  
+  - id: flake8
+    stages: [commit]
+    name: flake8 (python)
+    language: system
+    entry: flake8 ./src
+
+  - id: isort
+    name: isort (python)
+    language: python
+    entry: isort
+    stages: [commit]
+    args: [--cr setup.cfg, .]
